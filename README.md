@@ -308,4 +308,30 @@ const response = await fetch(
 );
 ```
 
+---
+
+## `GET https://tangro-demo-api.vercel.app/api/reset`
+
+Reset the database. Delete all the receipts and re-add with the initial ones.
+
+### Request Headers
+
+| Name          | Value                 |
+| ------------- | --------------------- |
+| Authorization | `Bearer <YOUR_TOKEN>` |
+
+### Response Body
+
+Status Codes:
+
+- `401` - the Authorization Token is either missing or faulty.
+- `200` - The app has successfully been reset
+
+### Example code
+
+```bash
+curl https://tangro-demo-api.vercel.app/api/reset -H "Authorization: Bearer <YOUR_TOKEN>"
+```
+
+
 
