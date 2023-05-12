@@ -168,8 +168,6 @@ Status Codes:
 | `currency`      | `'EUR'`         | The currency. In our example this will always return `'EUR'`      | `'EUR'`                                                    |
 | `valueAddedTax` | `19`            | The value added tax. In our example this will always return `19`. | `19`                                                       |
 
-The receipts are ordered by `date` in descending order.
-
 ### Example code
 
 ```typescript
