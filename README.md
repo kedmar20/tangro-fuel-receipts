@@ -137,7 +137,51 @@ const response = await fetch(
   }
 );
 ```
+---
 
+## `GET https://tangro-demo-api.vercel.app/api/receipts/<RECEIPT_ID>`
+
+Retrieve a single receipt
+
+### Request Headers
+
+| Name          | Value                 |
+| ------------- | --------------------- |
+| Authorization | `Bearer <YOUR_TOKEN>` |
+
+### Response Body
+
+Status Codes:
+
+- `401` - the Authorization Token is either missing or faulty.
+- `404` - The receipt could not be found.
+- `200` - The receipt. A single receipt has the following fields:
+
+| Field           | Type            | Description                                                       | Example                                                    |
+| --------------- | --------------- | ----------------------------------------------------------------- | ---------------------------------------------------------- |
+| `id`            | String          | The receipt id.                                                   | A CUID                                                     |
+| `vehicle`       | Vehicle         | The vehicle the receipt belongs to. See above for alle the fields | `{ id: '%%', name: 'VW Golf', licensePlate: 'B-XTA-4A5' }` |
+| `date`          | ISO Date String | The date of the fuel receipt.                                     | `'2023-05-06T00:00:00.000Z'`                               |
+| `odometer`      | Int             | The total number of driven kilometers.                            | `12405`                                                    |
+| `liters`        | Float           | The amount of fuel in liters.                                     | `40.3`                                                     |
+| `pricePerLiter` | Float           | The price per liter.                                              | `1.749`                                                    |
+| `currency`      | `'EUR'`         | The currency. In our example this will always return `'EUR'`      | `'EUR'`                                                    |
+| `valueAddedTax` | `19`            | The value added tax. In our example this will always return `19`. | `19`                                                       |
+
+The receipts are ordered by `date` in descending order.
+
+### Example code
+
+```typescript
+const response = await fetch(
+  "https://tangro-demo-api.vercel.app/api/receipts/<RECEIPT_ID>",
+  {
+    headers: {
+      Authorization: "Bearer <YOUR_TOKEN>",
+    },
+  }
+);
+```
 ---
 
 ## `POST https://tangro-demo-api.vercel.app/api/receipts/<RECEIPT_ID>`
