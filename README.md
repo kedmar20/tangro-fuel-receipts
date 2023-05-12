@@ -4,16 +4,16 @@
 
 Wir haben eine Demo API zur Verfügung gestellt, mit der es möglich ist Tankbelege zu verwalten. Es gibt eine Liste von Autos und eine Liste von Tankbelegen, die einem Auto zugeordnet sind. Neue Tankbelege können für ein Auto erstellt werden. Bitte erstelle einen Fork von diesem Repository und baue eine kleine Anwendung.
 
-
 ### Features
+
+- Die Anwendung soll eine ReactJs Anwendung sein
 - Eine Liste der Tankbelege
 - Diese Liste soll nach Fahrzeugen filterbar sein
 - Ein Formular mit dem man für ein bestimmtes Auto einen Tankbeleg erstellen kann
 
 > Bitte verwende für die Anwendung, den Dir von uns gegebenen API Key
 
-Bei der Wahl des Frameworks, der Libraries und der Art, wie Du die Aufgabe lösen möchtest, hast Du freie Wahl. Nutze am Besten die Technologien mit denen Du Dich am Besten auskennst.
-
+Bei der Wahl des Frameworks, der Libraries und der Art, wie Du die Aufgabe lösen möchtest, hast Du freie Wahl. Nutze am Besten die (ReactJs-) Technologien mit denen Du Dich am Besten auskennst.
 
 # API
 
@@ -106,15 +106,15 @@ Create a new fuel receipt.
 
 ### Request Body
 
-| Field           | Type                 | Description                                                                | Example                    |
-| --------------- | -------------------- | -------------------------------------------------------------------------- | -------------------------- |
-| `date`          | String               | ISO Date.                                                                  | `2023-05-06T00:00:00.000Z` |
-| `odometer`      | Int                  | The total km driven.                                                       | `25245`                    |
-| `liters`        | Float                | The amount of liters fueled up.                                            | `40.1`                     |
-| `pricePerLiter` | Float                | The price per liter.                                                       | `1.859`                    |
-| `vehicleId`     | String               | The id of the vehicle that has been refueled                               | The CUID of the vehicle    |
-| `valueAddedTax` | Int _(optional)_     | The value added tax. In our example this will always be `19`. _(optional)_ | `19`                       |
-| `currency`      | `'EUR'` _(optional)_ | In this example this will always be `'EUR'`                                | `'EUR'`                    |
+| Field           | Type                 | Description                                                                | Example                      |
+| --------------- | -------------------- | -------------------------------------------------------------------------- | ---------------------------- |
+| `date`          | String               | ISO Date.                                                                  | `'2023-05-06T00:00:00.000Z'` |
+| `odometer`      | Int                  | The total km driven.                                                       | `25245`                      |
+| `liters`        | Float                | The amount of liters fueled up.                                            | `40.1`                       |
+| `pricePerLiter` | Float                | The price per liter.                                                       | `1.859`                      |
+| `vehicleId`     | String               | The id of the vehicle that has been refueled                               | The CUID of the vehicle      |
+| `valueAddedTax` | Int _(optional)_     | The value added tax. In our example this will always be `19`. _(optional)_ | `19`                         |
+| `currency`      | `'EUR'` _(optional)_ | In this example this will always be `'EUR'`                                | `'EUR'`                      |
 
 ### Response Body
 
@@ -240,16 +240,16 @@ Status Codes:
 - `404` - The vehicle with the given `vehicleId` does not exist.
 - `200` - An array of receipts. A single receipt has the following fields:
 
-| Field           | Type            | Description                                                                                                                       |
-| --------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `id`            | String          | The receipt id. A CUID                                                                                                            |
-| `vehicle`       | Vehicle         | The vehicle the receipt belongs to. See above for alle the fields E.g. `{ id: '%%', name: 'VW Golf', licensePlate: 'B-XTA-4A5' }` |
-| `date`          | ISO Date String | The date of the fuel receipt                                                                                                      |
-| `odometer`      | Int             | The total number of driven kilometers. E.g. `12405`                                                                               |
-| `liters`        | Float           | The amount of fuel in liters. E.g. `40.3`                                                                                         |
-| `pricePerLiter` | Float           | The price per liter. E.g. `1.749`                                                                                                 |
-| `currency`      | `'EUR'`         | The currency. In our example this will always return `'EUR'`                                                                      |
-| `valueAddedTax` | `19`            | The value added tax. In our example this will always return `19`.                                                                 |
+| Field           | Type            | Description                                                        | Example                                                    |
+| --------------- | --------------- | ------------------------------------------------------------------ | ---------------------------------------------------------- |
+| `id`            | String          | The receipt id. A CUID                                             |
+| `vehicle`       | Vehicle         | The vehicle the receipt belongs to. See above for alle the fields. | `{ id: '%%', name: 'VW Golf', licensePlate: 'B-XTA-4A5' }` |
+| `date`          | ISO Date String | The date of the fuel receipt                                       | `'2023-05-06T00:00:00.000Z'`                               |
+| `odometer`      | Int             | The total number of driven kilometers.                             | `12405`                                                    |
+| `liters`        | Float           | The amount of fuel in liters.                                      | `40.3`                                                     |
+| `pricePerLiter` | Float           | The price per liter.                                               | `1.749`                                                    |
+| `currency`      | `'EUR'`         | The currency. In our example this will always return `'EUR'`       | `EUR'`                                                     |
+| `valueAddedTax` | `19`            | The value added tax. In our example this will always return `19`.  | `19`                                                       |
 
 The receipts are ordered by `date` in descending order.
 
@@ -265,4 +265,5 @@ const response = await fetch(
   }
 );
 ```
+
 
