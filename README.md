@@ -2,6 +2,19 @@
 
 ## Die Aufgabe
 
+Wir haben eine Demo API zur Verfügung gestellt, mit der es möglich ist Tankbelege zu verwalten. Es gibt eine Liste von Autos und eine Liste von Tankbelegen, die einem Auto zugeordnet sind. Neue Tankbelege können für ein Auto erstellt werden. Bitte erstelle einen Fork von diesem Repository und baue eine kleine Anwendung.
+
+
+### Features
+- Eine Liste der Tankbelege
+- Diese Liste soll nach Fahrzeugen filterbar sein
+- Ein Formular mit dem man für ein bestimmtes Auto einen Tankbeleg erstellen kann
+
+> Bitte verwende für die Anwendung, den Dir von uns gegebenen API Key
+
+Bei der Wahl des Frameworks, der Libraries und der Art, wie Du die Aufgabe lösen möchtest, hast Du freie Wahl. Nutze am Besten die Technologien mit denen Du Dich am Besten auskennst.
+
+
 # API
 
 ## `GET https://tangro-demo-api.vercel.app/api/vehicles`
