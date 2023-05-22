@@ -135,14 +135,7 @@ const Home = () => {
                      <option value="clhvmqzd20004mj08fqaccv59">Seat Leon HD-TA-X20</option>
                   </select>
                   <input type="text" placeholder="...vehicleId" name="vehicleId" value={formValues.vehicleId} onChange={handleInputChange} />
-                  {/* <input
-                  type="text"
-                  placeholder="...vehicle.licensePlate"
-                  name="licensePlate"
-                  value={formValues.licensePlate}
-                  onChange={handleInputChange}
-               /> */}
-                  {/* <input placeholder="...date" name="date" value={formValues.date} onChange={handleInputChange} /> */}
+
                   <input type="text" placeholder="...odometer" onChange={handleInputChange} name="odometer" value={formValues.odometer} />
                   <input type="number" placeholder="...liters" onChange={handleInputChange} name="liters" value={formValues.liters} />
                   <input
@@ -152,8 +145,6 @@ const Home = () => {
                      name="pricePerLiter"
                      value={formValues.pricePerLiter}
                   />
-                  {/* <input type="text" placeholder="...currency" onChange={handleInputChange} name="currency" value={formValues.currency} /> */}
-                  {/* <input type="text" placeholder="...valueAddedTax" onChange={handleInputChange} name="valueAddedTax" value={formValues.valueAddedTax} /> */}
                </AddTable>
                <Button type="submit">Add</Button>
             </form>

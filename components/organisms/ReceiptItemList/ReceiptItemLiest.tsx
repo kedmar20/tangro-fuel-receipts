@@ -12,7 +12,7 @@ const ReceiptItemLiest: React.FunctionComponent<ReceiptItemLiestProps> = ({ rece
 
    return (
       <Wrapper>
-         {receipeets?.map((receipt) => (
+         {receipeets.map((receipt) => (
             <ReceiptItem key={receipt.id} receipt={receipt} />
          ))}
       </Wrapper>
