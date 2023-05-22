@@ -7,8 +7,13 @@ import { Container, Main, Title } from "@/components/sharedstyles";
 
 interface VehiclePageProps {
    receiptss: ReceiptFetched[];
-   params: string;
 }
+
+type Params = {
+   params: {
+      vehicle: string;
+   };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
    const vehicleSlugs = ["clhvmqzdk0006mj08ftyjig9s", "clhvmqzcj0002mj081no5h0m0", "clhvmqzd20004mj08fqaccv59"];
@@ -21,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
    };
 };
 
-export const getStaticProps: GetStaticProps<VehiclePageProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
    const vehicle = params?.vehicle?.toString();
    const response = await fetch(`https://tangro-demo-api.vercel.app/api/vehicles/${vehicle}/receipts`, {
       headers: {
@@ -37,9 +42,9 @@ export const getStaticProps: GetStaticProps<VehiclePageProps> = async ({ params 
 
 const VehiclePage = ({ receiptss }: VehiclePageProps) => {
    const router = useRouter();
-   const vehicleName = router.query.vehicle?.toString();
+   const vehicleId = router.query.vehicle?.toString();
 
-   const title = "Vehicle: " + vehicleName;
+   const title = "Vehicle Id: " + vehicleId;
    console.log(receiptss);
 
    return (

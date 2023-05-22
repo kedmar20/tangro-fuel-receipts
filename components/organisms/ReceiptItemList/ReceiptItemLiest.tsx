@@ -7,7 +7,7 @@ interface ReceiptItemLiestProps {
    receipeets: ReceiptFetched[];
 }
 
-const ReceiptItemLiest: React.FunctionComponent<ReceiptItemLiestProps> = ({ receipeets, handleDelete2 }) => {
+const ReceiptItemLiest: React.FunctionComponent<ReceiptItemLiestProps> = ({ receipeets }) => {
    // console.log(receipeets);
 
    return (
