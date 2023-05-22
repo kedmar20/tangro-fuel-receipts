@@ -8,7 +8,7 @@ interface ReceiptItemLiestProps {
 }
 
 const ReceiptItemLiest: React.FunctionComponent<ReceiptItemLiestProps> = ({ receipeets }) => {
-   // console.log(receipeets);
+   console.log(receipeets);
 
    return (
       <Wrapper>
