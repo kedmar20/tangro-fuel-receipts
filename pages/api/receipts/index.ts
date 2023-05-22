@@ -1,5 +1,4 @@
-import { log } from "console";
-import { VehicleReceipt } from "models/VehicleReceipts";
+import { ReceiptFetched } from "@/models/ReceiptsFetched";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -9,16 +8,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             Authorization: `Bearer ${process.env.RECEIPTS_API_KEY}`,
          },
       });
-      const allReceipts: VehicleReceipt = await response.json();
-      console.log(allReceipts);
+      const allReceipts: ReceiptFetched = await response.json();
+      // console.log(allReceipts);
 
       res.status(200).json(allReceipts);
    }
 
    if (req.method === "POST") {
-      console.log("POST");
+      // console.log("POST");
       const receiptObj = req.body; // {}
-      console.log(JSON.stringify(receiptObj));
+      // console.log(JSON.stringify(receiptObj));
       const response = await fetch("https://tangro-demo-api.vercel.app/api/receipts", {
          method: "POST",
          body: JSON.stringify(receiptObj),

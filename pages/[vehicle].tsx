@@ -45,7 +45,7 @@ const VehiclePage = ({ receiptss }: VehiclePageProps) => {
    const vehicleId = router.query.vehicle?.toString();
 
    const title = "Vehicle Id: " + vehicleId;
-   console.log(receiptss);
+   // console.log(receiptss);
 
    return (
       <Container>

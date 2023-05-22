@@ -35,7 +35,7 @@ const Home = () => {
             const resolve = await fetch("/api/receipts");
 
             const data: ReceiptFetched[] = await resolve.json();
-            console.log(data);
+            // console.log(data);
             setReceipts(data);
          } catch (err) {
             setError(err.message);
@@ -46,7 +46,7 @@ const Home = () => {
       };
       getData();
    }, []);
-   console.log(receipts);
+   // console.log(receipts);
 
    const handleInputChange = (e) => {
       // console.log(e.target.name);
