@@ -13,7 +13,7 @@ export const OuterWrapperNavigation = styled.div`
    justify-content: space-between;
    align-items: center;
    width: 100%;
-   padding: 20px;
+   /* padding: 20px; */
    position: absolute;
    top: 0;
    z-index: 1000;
@@ -27,7 +27,7 @@ export const WrapperNavigation = styled.div<LogoProps>`
    position: absolute;
    top: 0;
    left: 0;
-   background-color: white;
+   background-color: ${({ theme }) => theme.colors.lightGrey};
    align-items: center;
    justify-content: space-between;
    padding: 50px;
@@ -38,8 +38,8 @@ export const WrapperNavigation = styled.div<LogoProps>`
       flex-direction: row;
       width: 100%;
       height: unset;
-      background-color: transparent;
-      padding: 25px 45px;
+      background-color: ${({ theme }) => theme.colors.darkPurple};
+      /* padding: 25px 45px; */
    }
 `;
 
@@ -81,15 +81,15 @@ export const StyledNavigation = styled.nav`
       padding: 0;
       text-align: center;
 
-      li {
+      /* li {
          a {
             display: inline-block;
             padding: 25px;
-            color: black;
+            color: red;
             text-decoration: none;
             font-size: ${({ theme }) => theme.fontSize.m};
          }
-      }
+      } */
 
       ${({ theme }) => theme.mq.desktop} {
          li {
@@ -111,4 +111,8 @@ export const StyledNavigation = styled.nav`
          }
       }
    }
+`;
+
+export const Dropdown = styled.button`
+   background-color: red;
 `;

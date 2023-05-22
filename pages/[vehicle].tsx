@@ -1,9 +1,9 @@
-import { VehicleReceipt, VehicleResponse } from "@/models/VehicleReceipts";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import ReceiptItemLiest from "@/components/organisms/ReceiptItemList/ReceiptItemLiest";
 import { ReceiptFetched, ReceiptResponse } from "@/models/ReceiptsFetched";
+import { Container, Main, Title } from "@/components/sharedstyles";
 
 interface VehiclePageProps {
    receipts: ReceiptFetched[];
@@ -41,16 +41,16 @@ const VehicleNewsPage = ({ receipts }: VehiclePageProps) => {
    const title = "Vehicle: " + vehicleName;
 
    return (
-      <>
+      <Container>
          <Head>
             <title key="title">{`${title} - NextJS News App`}</title>
          </Head>
-         <main>
-            <h1>{title}</h1>
+         <Main>
+            <Title>{title}</Title>
 
             <ReceiptItemLiest receipeets={receipts} />
-         </main>
-      </>
+         </Main>
+      </Container>
    );
 };
 

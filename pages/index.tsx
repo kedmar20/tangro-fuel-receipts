@@ -157,11 +157,6 @@ const Home = () => {
                <button type="submit">Add</button>
             </form>
             <ReceiptItemLiest receipeets={receipts} handleDelete2={handleDelete} />
-            <Description>
-               <CodeTag>pages/index.tsx</CodeTag>
-            </Description>
-
-            <Cards />
          </Main>
       </Container>
    );

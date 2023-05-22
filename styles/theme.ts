@@ -14,6 +14,9 @@ export const theme: DefaultTheme = {
       success: "#00B087",
       warning: "#1627C0",
       white: "#FFFFFF",
+      texts: "#224687",
+      textsActive: "#00ACC1",
+      buttonBackground: "#e7e76b",
    },
    fontSize: {
       xl: "24px",

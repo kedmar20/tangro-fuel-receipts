@@ -15,6 +15,9 @@ declare module "styled-components" {
          success: string;
          warning: string;
          white: string;
+         texts: string;
+         textsActive: string;
+         buttonBackground: string;
       };
       fontSize: {
          xl: string;

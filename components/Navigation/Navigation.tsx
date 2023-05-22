@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { OuterWrapperNavigation, StyledBurger, StyledNavigation, WrapperNavigation } from "./Navigation.styles";
-import { Dropdown } from "rsuite";
+import { Button, Dropdown } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
 
 export const Navigation = () => {
@@ -21,15 +21,15 @@ export const Navigation = () => {
             <StyledNavigation>
                <ul>
                   <li>
-                     <button className="App">
+                     <Button>
                         <Link onClick={toggleNavigation} href="/">
                            All Receipts
                         </Link>
-                     </button>
+                     </Button>
                   </li>
 
                   <li>
-                     <div className="App">
+                     <div>
                         {/* {todo / [...new Set()]+forEach} */}
                         <Dropdown title="Filter by Car">
                            <Dropdown.Item as="a" href="/clhvmqzdk0006mj08ftyjig9s">

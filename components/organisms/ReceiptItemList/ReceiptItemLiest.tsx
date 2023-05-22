@@ -1,6 +1,5 @@
 import ReceiptItem from "@/components/molecules/ReceiptItem/ReceiptItem";
 import { ReceiptFetched } from "@/models/ReceiptsFetched";
-import { VehicleReceipt } from "@/models/VehicleReceipts";
 import React from "react";
 
 interface ReceiptItemLiestProps {
@@ -13,7 +12,6 @@ const ReceiptItemLiest: React.FunctionComponent<ReceiptItemLiestProps> = ({ rece
 
    return (
       <div>
-         ReceiptItemLiest
          {receipeets?.map((receipt) => (
             <ReceiptItem key={receipt.id} receipt={receipt} handleDelete={handleDelete2} />
          ))}
