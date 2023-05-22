@@ -4,24 +4,29 @@ const Container = styled.div`
    padding: 0 0.5rem;
    display: flex;
    flex-flow: column nowrap;
-   justify-content: center;
+   justify-content: start;
    align-items: center;
-   height: 100vh;
+   height: 100%;
    min-height: 100vh;
+   margin-top: 100px;
+   background-color: #e6e6fa;
 `;
 const Main = styled.main`
-   padding: 5rem 0;
+   padding: 3rem 0;
    flex: 1;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   ${({ theme }) => theme.mq.desktop} {
+      padding: 2rem;
+   }
 `;
 
 const Title = styled.h1`
-   margin: 0;
+   margin: 15px 0 5px;
    line-height: 1.15;
-   font-size: ${({ theme }) => theme.fontSize.s};
+   font-size: ${({ theme }) => theme.fontSize.l};
    text-align: center;
    text-decoration: none;
 
@@ -49,5 +54,17 @@ const CodeTag = styled.code`
    font-size: 1.1rem;
    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 `;
+const AddTable = styled.div`
+   display: flex;
+   flex-wrap: wrap;
+   gap: 7px;
+   margin-bottom: 7px;
+   input,
+   select {
+      border: none;
+      border-radius: 5px;
+      padding: 3px;
+   }
+`;
 
-export { Container, Main, Title, Description, CodeTag };
+export { Container, Main, Title, Description, CodeTag, AddTable };

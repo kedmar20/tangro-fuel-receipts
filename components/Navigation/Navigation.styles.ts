@@ -9,10 +9,12 @@ type LogoProps = {
    isOpen?: boolean;
 };
 export const OuterWrapperNavigation = styled.div`
+   background-color: ${({ theme }) => theme.colors.darkPurple};
    display: flex;
-   justify-content: space-between;
+   justify-content: center;
    align-items: center;
    width: 100%;
+   height: 120px;
    /* padding: 20px; */
    position: absolute;
    top: 0;
@@ -27,18 +29,21 @@ export const WrapperNavigation = styled.div<LogoProps>`
    position: absolute;
    top: 0;
    left: 0;
-   background-color: ${({ theme }) => theme.colors.lightGrey};
+
    align-items: center;
    justify-content: space-between;
    padding: 50px;
 
    ${({ theme }) => theme.mq.desktop} {
-      position: static;
+      /* position: static; */
       display: flex;
       flex-direction: row;
       width: 100%;
-      height: unset;
+      height: 100%;
+      /* height: unset; */
       background-color: ${({ theme }) => theme.colors.darkPurple};
+      align-items: center;
+      justify-content: center;
       /* padding: 25px 45px; */
    }
 `;
@@ -54,19 +59,19 @@ export const StyledBurger = styled.button`
    display: flex;
    flex-direction: column;
    justify-content: space-around;
-   width: 2rem;
-   height: 2rem;
-   background: transparent;
+   width: 4rem;
+   height: 4rem;
+   background-color: transparent;
    border: none;
    cursor: pointer;
-   margin-right: 3px;
-   padding: 1px;
+   /* margin: 3px 3px auto 3px; */
+   /* padding: 1px; */
    z-index: 10;
 
    div {
-      width: 2rem;
-      height: 0.18rem;
-      background: black;
+      width: 100%;
+      height: 0.2rem;
+      background: white;
       position: relative;
    }
 
@@ -78,23 +83,22 @@ export const StyledBurger = styled.button`
 export const StyledNavigation = styled.nav`
    ul {
       list-style: none;
-      padding: 0;
+      padding: 0 10px;
       text-align: center;
-
-      /* li {
-         a {
-            display: inline-block;
-            padding: 25px;
-            color: red;
-            text-decoration: none;
-            font-size: ${({ theme }) => theme.fontSize.m};
-         }
-      } */
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
 
       ${({ theme }) => theme.mq.desktop} {
+         flex-direction: row;
+         align-items: center;
+         gap: 50px;
+
          li {
             a {
                padding: 0;
+               margin: 0;
             }
          }
       }
@@ -102,17 +106,5 @@ export const StyledNavigation = styled.nav`
 
    ${({ theme }) => theme.mq.desktop} {
       margin: auto;
-
-      ul {
-         display: flex;
-
-         li {
-            margin: 0 20px;
-         }
-      }
    }
-`;
-
-export const Dropdown = styled.button`
-   background-color: red;
 `;

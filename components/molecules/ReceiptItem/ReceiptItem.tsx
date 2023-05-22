@@ -1,17 +1,16 @@
 import React from "react";
+import { Wrapper } from "./ReceiptItem.styles";
 
-function ReceiptItem({ receipt, handleDelete }) {
-   //    handleDelete(receipt.id);
+function ReceiptItem({ receipt }) {
+   // console.log(receipt);
+
    return (
-      <div>
-         ReceiptItem
-         {` ${receipt.id}`}
-         <button
-            onClick={() => {
-               handleDelete(receipt.id);
-            }}
-         ></button>
-      </div>
+      <Wrapper>
+         <span>Date: {` ${receipt.date}`}</span>
+         <span>Liters: {` ${receipt.liters}`}</span>
+         <span>Odometer: {` ${receipt.odometer}`}</span>
+         <span>PricePerLiter: {` ${receipt.pricePerLiter} ${receipt.currency}`}</span>
+      </Wrapper>
    );
 }
 

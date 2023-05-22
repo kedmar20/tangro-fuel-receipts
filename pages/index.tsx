@@ -1,11 +1,10 @@
 import Head from "next/head";
-import { Container, Main, Title, Description, CodeTag } from "components/sharedstyles";
-import Cards from "components/cards";
+import { Container, Main, Title, AddTable } from "components/sharedstyles";
 import { useEffect, useState } from "react";
 import ReceiptItemLiest from "@/components/organisms/ReceiptItemList/ReceiptItemLiest";
-import useHandlers from "@/hooks/useHandlers";
-import { createId } from "@paralleldrive/cuid2";
 import { ReceiptFetched } from "@/models/ReceiptsFetched";
+import { Button } from "rsuite";
+import moment from "moment";
 
 const initialFormState = {
    // id: "",
@@ -57,18 +56,19 @@ const Home = () => {
       });
       // console.log(e.target.name);
    };
-   const handleDelete = (e) => {
-      // console.log(e);
-   };
+
    const handleAddReceipt = async (e) => {
       e.preventDefault();
+
+      // console.log(Date.now());
+      // console.log(moment().toISOString());
 
       //new object creating-neueBelege:
       const newReceiptObj: ReceiptFetched = {
          // id: createId(),
          // vehicle: { id: createId(), name: formValues.name, licensePlate: formValues.licensePlate },
-         date: "2023-02-10T00:00:00.000Z",
-         // date: Date.now().toString(),
+         date: moment().toISOString(),
+         // date: (Date.now()).toISOString(),
          odometer: Number.parseInt(formValues.odometer),
          liters: Number.parseFloat(formValues.liters),
          pricePerLiter: Number.parseFloat(formValues.pricePerLiter),
@@ -125,38 +125,40 @@ const Home = () => {
             <link rel="icon" href="/favicon.ico" />
          </Head>
          <Main>
-            <Title>Eine Liste der Tankbelege:</Title>
+            <Title>Add New Receipt:</Title>
             <form onSubmit={handleAddReceipt}>
-               <select name="vehicleId" onChange={handleInputChange} value={formValues.vehicleId}>
-                  <option value="">Choose the Car</option>
-                  <option value="clhvmqzdk0006mj08ftyjig9s">Cupra Formentor HD-TA-X44</option>
-                  <option value="clhvmqzcj0002mj081no5h0m0">VW Passat HD-TA-X12</option>
-                  <option value="clhvmqzd20004mj08fqaccv59">Seat Leon HD-TA-X20</option>
-               </select>
-               <input type="text" placeholder="...vehicleId" name="vehicleId" value={formValues.vehicleId} onChange={handleInputChange} />
-               {/* <input
+               <AddTable>
+                  <select name="vehicleId" onChange={handleInputChange} value={formValues.vehicleId}>
+                     <option value="">Choose the Car</option>
+                     <option value="clhvmqzdk0006mj08ftyjig9s">Cupra Formentor HD-TA-X44</option>
+                     <option value="clhvmqzcj0002mj081no5h0m0">VW Passat HD-TA-X12</option>
+                     <option value="clhvmqzd20004mj08fqaccv59">Seat Leon HD-TA-X20</option>
+                  </select>
+                  <input type="text" placeholder="...vehicleId" name="vehicleId" value={formValues.vehicleId} onChange={handleInputChange} />
+                  {/* <input
                   type="text"
                   placeholder="...vehicle.licensePlate"
                   name="licensePlate"
                   value={formValues.licensePlate}
                   onChange={handleInputChange}
                /> */}
-               {/* <input placeholder="...date" name="date" value={formValues.date} onChange={handleInputChange} /> */}
-               <input type="text" placeholder="...odometer" onChange={handleInputChange} name="odometer" value={formValues.odometer} />
-               <input type="number" placeholder="...liters" onChange={handleInputChange} name="liters" value={formValues.liters} />
-               <input
-                  type="number"
-                  placeholder="...pricePerLiter"
-                  onChange={handleInputChange}
-                  name="pricePerLiter"
-                  value={formValues.pricePerLiter}
-               />
-               {/* <input type="text" placeholder="...currency" onChange={handleInputChange} name="currency" value={formValues.currency} /> */}
-               {/* <input type="text" placeholder="...valueAddedTax" onChange={handleInputChange} name="valueAddedTax" value={formValues.valueAddedTax} /> */}
-
-               <button type="submit">Add</button>
+                  {/* <input placeholder="...date" name="date" value={formValues.date} onChange={handleInputChange} /> */}
+                  <input type="text" placeholder="...odometer" onChange={handleInputChange} name="odometer" value={formValues.odometer} />
+                  <input type="number" placeholder="...liters" onChange={handleInputChange} name="liters" value={formValues.liters} />
+                  <input
+                     type="number"
+                     placeholder="...pricePerLiter"
+                     onChange={handleInputChange}
+                     name="pricePerLiter"
+                     value={formValues.pricePerLiter}
+                  />
+                  {/* <input type="text" placeholder="...currency" onChange={handleInputChange} name="currency" value={formValues.currency} /> */}
+                  {/* <input type="text" placeholder="...valueAddedTax" onChange={handleInputChange} name="valueAddedTax" value={formValues.valueAddedTax} /> */}
+               </AddTable>
+               <Button type="submit">Add</Button>
             </form>
-            <ReceiptItemLiest receipeets={receipts} handleDelete2={handleDelete} />
+            <Title>All Receipts:</Title>
+            <ReceiptItemLiest receipeets={receipts} />
          </Main>
       </Container>
    );

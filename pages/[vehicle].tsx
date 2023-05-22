@@ -6,7 +6,8 @@ import { ReceiptFetched, ReceiptResponse } from "@/models/ReceiptsFetched";
 import { Container, Main, Title } from "@/components/sharedstyles";
 
 interface VehiclePageProps {
-   receipts: ReceiptFetched[];
+   receiptss: ReceiptFetched[];
+   params: string;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -29,16 +30,17 @@ export const getStaticProps: GetStaticProps<VehiclePageProps> = async ({ params 
    });
    const vehiclesResponse: ReceiptResponse = await response.json();
    return {
-      props: { receipts: vehiclesResponse },
+      props: { receiptss: vehiclesResponse },
       revalidate: 5 * 60,
    };
 };
 
-const VehicleNewsPage = ({ receipts }: VehiclePageProps) => {
+const VehiclePage = ({ receiptss }: VehiclePageProps) => {
    const router = useRouter();
    const vehicleName = router.query.vehicle?.toString();
 
    const title = "Vehicle: " + vehicleName;
+   console.log(receiptss);
 
    return (
       <Container>
@@ -48,10 +50,10 @@ const VehicleNewsPage = ({ receipts }: VehiclePageProps) => {
          <Main>
             <Title>{title}</Title>
 
-            <ReceiptItemLiest receipeets={receipts} />
+            <ReceiptItemLiest receipeets={receiptss} />
          </Main>
       </Container>
    );
 };
 
-export default VehicleNewsPage;
+export default VehiclePage;
