@@ -30,7 +30,7 @@ export const Navigation = () => {
 
                   <li>
                      <div>
-                        {/* {todo / [...new Set()]+forEach} */}
+                        {/* {todo / [...new Set()]+map} */}
                         <Dropdown title="Filter by Car">
                            <Dropdown.Item as="a" href="/clhvmqzdk0006mj08ftyjig9s">
                               Cupra Formentor HD-TA-X44
