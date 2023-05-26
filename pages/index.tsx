@@ -80,7 +80,7 @@ const Home = () => {
       // console.log(receipts);
       setFormValues(initialFormState); //clearing the Form
       // post request sending:
-      setReceipts([...receipts, newReceiptObj]); // state updating-Belegeliste
+      setReceipts([newReceiptObj, ...receipts]); // state updating-Belegeliste
       const res = await fetch("/api/receipts", {
          method: "POST",
          headers: {
